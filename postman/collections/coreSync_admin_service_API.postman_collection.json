@@ -1,0 +1,1697 @@
+{
+  "info": {
+    "_postman_id": "190698c7-2cad-4fb0-b47d-7c206abc837a",
+    "name": "coreSync_admin_service_API",
+    "description": "# Admin API Documentation\n\n## Overview\n\nThe Admin API provides comprehensive administrative functionality for the ERP system, including user management, authentication, notifications, address management, roles and permissions, and system configuration.\n\n## Getting Started\n\n### Authentication\n\nThis API uses Bearer token authentication. Include your authentication token in the Authorization header:\n\n```\nAuthorization: Bearer {{vault:bearerToken}}\n\n ```\n\n### Base URL\n\nSet the `{{base_url}}` variable in your environment to point to your API server (e.g., `http://localhost:8080`).\n\n## API Modules\n\n### 🔐 Authentication (Auth)\n\nHandles user authentication and session management.\n\n- Login and logout operations\n    \n- Token management\n    \n- Session validation\n    \n\n### 👥 User Management\n\nComplete user lifecycle management including:\n\n- Create, read, update, and delete users\n    \n- User profile management\n    \n- User status management\n    \n\n### 📍 Address & Location\n\nManage addresses and location data:\n\n- Address CRUD operations\n    \n- City and district lookups\n    \n- Location hierarchy management\n    \n\n### 🔑 Roles & Permissions\n\nRole-based access control (RBAC) system:\n\n- Role creation and management\n    \n- Permission assignment\n    \n- Role-permission mapping\n    \n\n### 🔔 Notifications\n\nNotification system management:\n\n- Create and manage notifications\n    \n- Notification type configuration\n    \n- Notification delivery tracking\n    \n\n### ⚙️ System Configuration\n\nSystem-level settings and preferences:\n\n- SMTP settings for email delivery\n    \n- System preferences\n    \n- Organization settings\n    \n\n## Common Workflows\n\n### Setting Up a New User\n\n1. Create user account (User → Create user)\n    \n2. Assign role (Role → Assign role to user)\n    \n3. Configure permissions (Permission → Set permissions)\n    \n4. Create address if needed (Address → Create address)\n    \n\n### Configuring Notifications\n\n1. Create notification type (Notification → Create notification type)\n    \n2. Configure SMTP settings (SmtpSettings → Configure SMTP)\n    \n3. Send notifications (Notification → Create notification)\n    \n\n## Environment Variables\n\nEnsure these variables are configured in your environment:\n\n- `base_url` - Your API server URL\n    \n- `vault:bearerToken` - Your authentication token (stored securely in Postman Vault)\n    \n\n## Support & Resources\n\nFor additional support or to report issues, contact your system administrator or development team.\n\n---\n\n_Last updated: 2024_",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "customer signup by admin",
+          "id": "f42b82d5-59f7-47df-817f-e6e7bb34173d",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//   \"firstname\": \"Dilhani\",\r\n//   \"lastname\": \"Customer\",\r\n//   \"email\": \"dilhanicustomer12@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0776085087\"],\r\n//   \"userStatus\": \"ACTIVE\",\r\n//   \"roleCode\": \"ROLE-003\"\r\n\r\n// }\r\n// \r\n// {\r\n//   \"firstname\": \"Daham\",\r\n//   \"lastname\": \"Wimalarathne\",\r\n//   \"email\": \"dahamfinancemanager@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0781234227\"],\r\n//   \"userStatus\": \"ACTIVE\",\r\n//   \"roleCode\": \"ROLE-009\"\r\n\r\n// }\r\n// \r\n// {\r\n//   \"firstname\": \"Sanduni\",\r\n//   \"lastname\": \"Perera\",\r\n//   \"email\": \"sandunicsofficer@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0784434337\"],\r\n//   \"userStatus\": \"ACTIVE\",\r\n//   \"roleCode\": \"ROLE-011\"\r\n\r\n// }\r\n\r\n// {\r\n//   \"firstname\": \"Rashmi\",\r\n//   \"lastname\": \"Navoda\",\r\n//   \"email\": \"rashmiprojectmanager@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0786604337\"],\r\n//   \"userStatus\": \"ACTIVE\",\r\n//   \"roleCode\": \"ROLE-010\"\r\n\r\n// }\r\n// {\r\n//   \"firstname\": \"Amanda\",\r\n//   \"lastname\": \"Silva\",\r\n//   \"email\": \"amandaprocurementOfficer@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0726604337\"],\r\n//   \"userStatus\": \"ACTIVE\",\r\n//   \"roleCode\": \"ROLE-012\"\r\n\r\n// }\r\n// {\r\n//   \"firstname\": \"Ranidu\",\r\n//   \"lastname\": \"Samitha\",\r\n//   \"email\": \"raniduccountant@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"07244006637\"],\r\n//   \"userStatus\": \"ACTIVE\",\r\n//   \"roleCode\": \"ROLE-013\"\r\n//  }\r\n// {\r\n//   \"firstname\": \"Akash\",\r\n//   \"lastname\": \"Nethmina\",\r\n//   \"email\": \"akashpayrollofficer@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0781114337\"],\r\n//   \"userStatus\": \"ACTIVE\",\r\n//   \"roleCode\": \"ROLE-014\"\r\n\r\n// }\r\n\r\n// {\r\n//   \"firstname\": \"Nimal\",\r\n//   \"lastname\": \"Fernando\",\r\n//   \"email\": \"nimal.fernando@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0771234567\", \"0112345678\"],\r\n//   \"address\": {\r\n//     \"addressLine1\": \"No 25, Main Street\",\r\n//     \"addressLine2\": \"Colombo 05\",\r\n//     \"postalCode\": \"00500\",\r\n//     \"cityId\": \"YOUR_CITY_UUID_HERE\"\r\n//   }\r\n// }\r\n\r\n{\r\n  \"firstname\": \"Nimal\",\r\n  \"lastname\": \"Fernando\",\r\n  \"email\": \"nimal.fernando@example.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"contactNumbers\": [\"0771234567\", \"0112345678\"],\r\n  \"address\": {\r\n    \"addressLine1\": \"No 25, Main Street\",\r\n    \"addressLine2\": \"Colombo 05\",\r\n    \"postalCode\": \"00500\",\r\n    \"cityId\": \"YOUR_CITY_UUID_HERE\"\r\n  }\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "customer signup",
+          "id": "d0df8535-2193-4931-9f8e-0225703e611e",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//   \"firstname\": \"John2\",\r\n//   \"lastname\": \"Customer\",\r\n//   \"email\": \"john4customer@example.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0771234567\"]\r\n// }\r\n\r\n// {\r\n//     \"firstname\": \"Ravin\",\r\n//     \"lastname\": \"Gamage\",\r\n//     \"email\": \"ravin.gamage@example.lk\",\r\n//     \"contactNumbers\": [\r\n//         \"+94771234567\",\r\n//         \"+94112345678\"\r\n//     ],\r\n//     \"password\": \"Password123@!\",\r\n//     \"address\": {\r\n//         \"addressLine1\": \"123 Galle Road\",\r\n//         \"addressLine2\": \"Apartment 4B\",\r\n//         \"postalCode\": \"10300\",\r\n//         \"cityId\": \"4f9612a4-ffcb-4551-a22f-d4e295a030ce\"\r\n//     }\r\n// }\r\n{\r\n  \"firstname\": \"Imashi2\",\r\n  \"lastname\": \"Customer\",\r\n  \"email\": \"ranaweeraimashi880@gmail.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"contactNumbers\": [\"07712355567\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sign in",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {\r",
+                  "    const response = pm.response.json();\r",
+                  "    pm.environment.set(\"bearerToken\", response.data.token);\r",
+                  "}\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "b78c10dd-435e-4910-820b-fb9597abfbfd",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//   \"email\":\"john.doe@example.com\",\r\n//  \"password\":\"Test@1234\"\r\n// }\r\n\r\n// {\r\n//     \"email\": \"usererp@gmail.com\",\r\n//     \"password\": \"1qaz@Wsx\"\r\n// }\r\n\r\n// {\r\n//  \"email\": \"goshitha.premachandra@test.com\",\r\n//   \"password\": \"Test@1234\"\r\n// }\r\n\r\n{\r\n    \"email\": \"ranaweeraimashi880@gmail.com\",\r\n    \"password\": \"Test@2026\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Forget Password",
+          "id": "97796632-c60d-43db-820d-a94b0f24a5a1",
+          "request": {
+            "auth": {
+              "type": "bearer"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"ranaweeraimashi880@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/forgot-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "forgot-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify OTP",
+          "id": "56fd4d25-462a-496b-9e67-c3274d86e96e",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"ranaweeraimashi880@gmail.com\",\r\n  \"otp\": \"987593\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/verify-otp",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify-otp"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Password",
+          "id": "e408edc4-a895-4442-bc96-c0710323764b",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"ranaweeraimashi880@gmail.com\",\r\n  \"resetToken\": \"8f834435-f51e-493b-92f0-4c7ccf9f1a63\",\r\n  \"newPassword\": \"Test@2026\",\r\n  \"confirmPassword\": \"Test@2026\"\r\n}\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/reset-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "reset-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "60f12278-a420-4911-bfe3-baaf43265e99"
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "update user",
+          "id": "8a765e66-07e9-419e-a872-ae5a8a66aeb4",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstname\": \"user\",\r\n  \"lastname\": \"erp\",\r\n  \"email\": \"usererp@gmail.com\",\r\n  \"password\": \"SecurePass124#\",\r\n  \"roleCode\": \"ROLE-003\"\r\n  \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/users/5e7b60ef-6387-480a-ae1e-d1fb04432be5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "users",
+                "5e7b60ef-6387-480a-ae1e-d1fb04432be5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all users",
+          "id": "bf7a0159-5080-469a-a1f5-337864aa5a0c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "admin add system user",
+          "id": "b9197120-db86-4ac1-95d1-fe7fc5e48490",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//   \"firstname\": \"Goshitha\",\r\n//   \"lastname\": \"Premachandra\",\r\n//   \"email\": \"goshitha.premachandra@test.com\",\r\n//   \"password\": \"Test@1234\",\r\n//   \"contactNumbers\": [\"0786123467\"],\r\n//   \"roleCode\": \"ROLE-001\",\r\n//   \"userStatus\": \"ACTIVE\"\r\n// }\r\n{\r\n  \"firstname\": \"Tharanga\",\r\n  \"lastname\": \"Premachandra\",\r\n  \"email\": \"tharanga.premachandra@test.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"contactNumbers\": [\"0786123469\"],\r\n  \"roleCode\": \"ROLE-001\",\r\n  \"userStatus\": \"ACTIVE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update user status",
+          "id": "cefbb02f-4518-4a35-ab5a-07f596e23a5e",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userStatus\" : \"INACTIVE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/users/4956ffa3-250e-4899-b1f3-31469d51d6b3/activate",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "4956ffa3-250e-4899-b1f3-31469d51d6b3",
+                "activate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete user",
+          "id": "9ba4901d-beb6-46d4-b5ea-8961b64d0bcd",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/70588c30-dfb3-447f-89c4-d47b4107d8c4",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "70588c30-dfb3-447f-89c4-d47b4107d8c4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get user by ID",
+          "id": "a094be6a-82a4-478d-b4cb-b262bdbe8afa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstname\": \"Goshitha\",\r\n  \"lastname\": \"Premachandra\",\r\n  \"email\": \"goshitha.premachandra@test.com\",\r\n  \"password\": \"Test@1234\",\r\n  \"contactNumbers\": [\"0786123467\"],\r\n  \"roleCode\": \"ROLE-001\",\r\n  \"userStatus\": \"ACTIVE\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/ed2918d0-ed19-4b2d-8ad2-0c4480d97951",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "ed2918d0-ed19-4b2d-8ad2-0c4480d97951"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "074b61b6-a381-43a2-948f-4393ecc0a513"
+    },
+    {
+      "name": "Address",
+      "item": [
+        {
+          "name": "create address",
+          "id": "196c4df9-cfab-4a67-8696-cb4a3dd7b100",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n    \"addressLine1\": \"123 Galle Road\",\r\n    \"addressLine2\": \"Colombo 03\",\r\n    \"postalCode\": null,\r\n    \"cityId\": \"{{cityId}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/addresses",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "addresses"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all address",
+          "id": "159bdab4-9112-4ad4-a03c-dffbdd5a5e3b",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/addresses",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "addresses"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get address",
+          "id": "101a865e-30f0-498f-96ed-590607fb4bb1",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/addresses/dd10904c-31d5-417e-bb04-04273faf5e05",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "addresses",
+                "dd10904c-31d5-417e-bb04-04273faf5e05"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update address",
+          "id": "81a38cb2-cc31-448b-937a-a5d2153897c2",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"addressLine1\": \"123 Galle Road\",\r\n    \"addressLine2\": \"Colombo 03\",\r\n    \"postalCode\": null,\r\n    \"cityId\": \"{{cityId}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/addresses/dd10904c-31d5-417e-bb04-04273faf5e0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "addresses",
+                "dd10904c-31d5-417e-bb04-04273faf5e0"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete address",
+          "id": "cd8efd88-c7ae-4ad1-8948-0ffe2b348e2a",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/addresses/dd10904c-31d5-417e-bb04-04273faf5e0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "addresses",
+                "dd10904c-31d5-417e-bb04-04273faf5e0"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all provinces",
+          "id": "7f533521-72f5-470d-94d4-7138b9648a26",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/locations/provinces",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "provinces"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get districts by province",
+          "id": "79205c15-9703-4cd2-837c-41f0cfb824e9",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/locations/provinces/b88f9905-6422-4d97-8d3d-2810d19f8f3b/districts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "provinces",
+                "b88f9905-6422-4d97-8d3d-2810d19f8f3b",
+                "districts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get cities by district",
+          "id": "70cdb3a6-5323-485d-9f80-c8afe4dea218",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/locations/districts/{districtId}/cities",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "districts",
+                "{districtId}",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all cities",
+          "id": "d201f03c-29e7-43a1-a67c-4ed3859f650e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/locations/cities",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search cities",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {\r",
+                  "    const response = pm.response.json();\r",
+                  "    pm.environment.set(\"cityId\", response[0].cityId);\r",
+                  "}\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "id": "80b948b3-b65b-4946-9716-f67e57e6597b",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/locations/cities/search?keyword=Ambalangoda",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "locations",
+                "cities",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "keyword",
+                  "value": "Ambalangoda"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "d74a4d88-2a1c-46bf-af00-0312aece2a2c"
+    },
+    {
+      "name": "role",
+      "item": [
+        {
+          "name": "update roles",
+          "id": "a8e68614-55e0-4639-bfdf-12cd0fbd5bd7",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3NzMzOSwiZXhwIjoxNzY5MTYzNzM5fQ.6I8O9SBco-o2Q_xnD3Gg1KwC56Bq10t8rAD7mvWwtEw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"roleName\": \"Super Admin\",\r\n    \"description\": \"Manages system-wide settings and user permissions\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/roles/88a9d861-9d6f-415a-bf2d-3153dd4626d7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "roles",
+                "88a9d861-9d6f-415a-bf2d-3153dd4626d7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "role delete",
+          "id": "5662c88e-4954-4ea4-b7cf-56566a5fabeb",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3NzMzOSwiZXhwIjoxNzY5MTYzNzM5fQ.6I8O9SBco-o2Q_xnD3Gg1KwC56Bq10t8rAD7mvWwtEw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:8080/roles/5224d894-390c-4187-a633-12c373ff80fe",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "roles",
+                "5224d894-390c-4187-a633-12c373ff80fe"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create roles",
+          "id": "792c05a1-112c-4501-8bf1-c9b7b6ab825a",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"roleName\":\"Admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/roles",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "all roles",
+          "id": "ab978837-7038-4dab-b811-b97d3d3163a4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"roleCode\": \"ROLE-001\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/roles",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "f68c42af-f7d1-452c-9632-5eb27def3a92"
+    },
+    {
+      "name": "Permission",
+      "item": [
+        {
+          "name": "Get all permission",
+          "id": "d497b34d-6ed6-4368-bb77-c41974555e2b",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/permissions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "permissions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get  permission by ID",
+          "id": "000b51c9-d796-4f75-a64f-c35a872ca635",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/permissions/5b279ae7-b7bf-4830-8c40-e7e566fe8cf0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "permissions",
+                "5b279ae7-b7bf-4830-8c40-e7e566fe8cf0"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create new permission",
+          "id": "15be70e4-a4b1-499b-95f2-2025932b9c71",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/permissions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "permissions"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "9799910d-3bc4-4e69-9049-73d3554866a1"
+    },
+    {
+      "name": "role permission",
+      "item": [
+        {
+          "name": "assign permission",
+          "id": "45d2443e-d253-4e60-9a97-cfa28365d257",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3NzMzOSwiZXhwIjoxNzY5MTYzNzM5fQ.6I8O9SBco-o2Q_xnD3Gg1KwC56Bq10t8rAD7mvWwtEw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"roleName\": \"Accountant\",\r\n    \"roleCode\": \"ROLE-013\",\r\n    \"description\": \"cannot manage inventory\",\r\n    \"permissions\": [\r\n        {\r\n            \"permissionId\": \"1c16ca35-637a-42df-b00b-f390475676cc\",\r\n            \"canRead\": false,\r\n            \"canUpdate\": false,\r\n            \"canCreate\": false,\r\n            \"canDelete\": true\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/roles/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "roles",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "eb219ce0-5c9f-4d8f-be6d-84751e0eb6f3"
+    },
+    {
+      "name": "Notification",
+      "item": [
+        {
+          "name": "update notification types",
+          "id": "1fa4f9a9-3253-4740-8f39-47763a86dcd4",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3MjU4MCwiZXhwIjoxNzY5MTU4OTgwfQ.lsWyzk-X6vdKw6EpcBt3SCYKXNlIdfwIIHmQXTX0TdA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"CRITICAL\",\r\n    \"icon\": \"dangerous\",\r\n    \"color\": \"#FF0000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/notifications/types/5c27af1b-bcbf-4870-a54c-532933ed3aca",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "notifications",
+                "types",
+                "5c27af1b-bcbf-4870-a54c-532933ed3aca"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create notification type",
+          "id": "a5e2c91a-bebc-4a80-ad65-b2fe6319ef9f",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3MjU4MCwiZXhwIjoxNzY5MTU4OTgwfQ.lsWyzk-X6vdKw6EpcBt3SCYKXNlIdfwIIHmQXTX0TdA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"WARNING\",\r\n    \"icon\": \"warning-amber\",\r\n    \"color\": \"#FFA500\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/notifications/types",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "notifications",
+                "types"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create notification",
+          "id": "06d6478f-d58b-4e5e-accb-ae6519aa6a08",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"saj@gmail.com\",\r\n    \"password\": \"1234\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/notifications",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "notifications"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get notification type by id",
+          "id": "9a6ec53f-2b02-499c-8a35-938e520174c8",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all notification types",
+          "id": "9f927a63-3a57-49ff-a00c-2b682c5ed89f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc2OTA2MzE0MywiZXhwIjoxNzY5MTQ5NTQzfQ.Sg5h7gNYc7kS1qf52LJKTE67xWpt0bc_lhJ8XBSbsFo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"WARNING\",\r\n    \"icon\": \"warning-amber\",\r\n    \"color\": \"#FFA500\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/notifications/types",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "notifications",
+                "types"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all notifications",
+          "id": "c815d3dc-cc90-4fc7-a975-e53e45dd7620",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete notification type",
+          "id": "3348f621-c688-4a25-9dd5-3c42fac2b6d5",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc2OTA2MzE0MywiZXhwIjoxNzY5MTQ5NTQzfQ.Sg5h7gNYc7kS1qf52LJKTE67xWpt0bc_lhJ8XBSbsFo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"WARNING\",\r\n    \"icon\": \"warning-amber\",\r\n    \"color\": \"#FFA500\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/notifications/types/5c27af1b-bcbf-4870-a54c-532933ed3aca",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "notifications",
+                "types",
+                "5c27af1b-bcbf-4870-a54c-532933ed3aca"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete notification by admin permenently",
+          "id": "6d75a3ea-2868-4375-85fa-7c5b6cd7ca59",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc2OTA2MzE0MywiZXhwIjoxNzY5MTQ5NTQzfQ.Sg5h7gNYc7kS1qf52LJKTE67xWpt0bc_lhJ8XBSbsFo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"WARNING\",\r\n    \"icon\": \"warning-amber\",\r\n    \"color\": \"#FFA500\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/notifications/2c29e9a3-294f-4ee2-af56-f69b2eafc5d5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "notifications",
+                "2c29e9a3-294f-4ee2-af56-f69b2eafc5d5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "users delete notification",
+          "id": "bba50a48-558c-40cd-9d30-45de5fef510f",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc2OTA2MzE0MywiZXhwIjoxNzY5MTQ5NTQzfQ.Sg5h7gNYc7kS1qf52LJKTE67xWpt0bc_lhJ8XBSbsFo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"WARNING\",\r\n    \"icon\": \"warning-amber\",\r\n    \"color\": \"#FFA500\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/notifications/2c29e9a3-294f-4ee2-af56-f69b2eafc5d5",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "notifications",
+                "2c29e9a3-294f-4ee2-af56-f69b2eafc5d5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "08da3ee3-c837-4bb6-bc14-20ec9dbb9429"
+    },
+    {
+      "name": "System preferace",
+      "item": [
+        {
+          "name": "add system preferance",
+          "id": "c7ae5760-9af4-4906-b02a-caf2eada8a6c",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "3aac79ff-b47b-4316-b356-124de6ac485c"
+    },
+    {
+      "name": "Organization",
+      "item": [
+        {
+          "name": "New Request",
+          "id": "8923c349-2fc5-478f-a149-46cff5c1ddfb",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "fccf21d9-c36b-4b34-8a55-e8ec2e63e1b4",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "0b1aa914-2841-4d7e-86cf-fd26fe84625d",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "19479f3b-ef24-4318-a497-93bf7314607c",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "0f6578b8-f04d-4910-9eb2-79e25197a2c1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "f510300a-e2f1-4efd-852f-765dc776dc11"
+    },
+    {
+      "name": "SmtpSettings",
+      "item": [
+        {
+          "name": "Create smtp",
+          "id": "31e4126d-8e1c-407d-b131-b14ded3c3d42",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//   \"smtpPurpose\": \"test mail\",\r\n//   \"smtpHost\": \"smtp.gmail.com\",\r\n//   \"smtpPort\": 587,\r\n//   \"smtpUsername\": \"test2@gmail.com\",\r\n//   \"smtpPassword\": \"test1234\",\r\n//   \"senderEmail\": \"test2@gmail.com\",\r\n//   \"securityType\": \"STARTTLS\",\r\n//   \"isActive\": true\r\n// }\r\n\r\n{\r\n  \"smtpPurpose\": \"test mail\",\r\n  \"smtpHost\": \"smtp.gmail.com\",\r\n  \"smtpPort\": 587,\r\n  \"smtpUsername\": \"goshitha.st@gmail.com\",\r\n  \"smtpPassword\": \"uvztehgpkbkewddw\",\r\n  \"senderEmail\": \"goshitha.st@gmail.com\",\r\n  \"securityType\": \"STARTTLS\",\r\n  \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/smtp-settings/9943067d-aa55-47a2-8bc2-b35b01399b35",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "smtp-settings",
+                "9943067d-aa55-47a2-8bc2-b35b01399b35"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all smtp",
+          "id": "60b2b85b-4bb8-47ed-b99a-e9826d71e2ad",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/smtp-settings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "smtp-settings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get stmp by id",
+          "id": "e4077b6b-c803-4f96-9131-1e536ef19b2d",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/smtp-settings/f8cc9986-8a0c-49bf-b00d-2377b32d4546",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "smtp-settings",
+                "f8cc9986-8a0c-49bf-b00d-2377b32d4546"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get smtp by purpose",
+          "id": "5e5190f6-2c42-46be-9595-fc054cb04e25",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/smtp-settings/purpose/SYSTEM_NOTIFICATIONS",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "smtp-settings",
+                "purpose",
+                "SYSTEM_NOTIFICATIONS"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update smtp",
+          "id": "87cfcb22-1f55-43e1-a6ee-8f9c9fb69776",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"smtpPurpose\": \"SYSTEM_NOTIFICATIONS_1234\",\r\n  \"smtpHost\": \"smtp.gmail.com\",\r\n  \"smtpPort\": 587,\r\n  \"smtpUsername\": \"test1@gmail.com\",\r\n  \"smtpPassword\": \"test123456\",\r\n  \"senderEmail\": \"test1@gmail.com\",\r\n  \"securityType\": \"STARTTLS\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/smtp-settings/fbfd0a61-d4ca-4407-976a-2eea93c18b4d",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "smtp-settings",
+                "fbfd0a61-d4ca-4407-976a-2eea93c18b4d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete smtp",
+          "id": "8bd02521-4f49-4dcf-8ebd-e02c0b9401ba",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/smtp-settings/fbfd0a61-d4ca-4407-976a-2eea93c18b4d",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "smtp-settings",
+                "fbfd0a61-d4ca-4407-976a-2eea93c18b4d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Test mail smpt",
+          "id": "d62da1df-f64c-4642-a0aa-b614d798407c",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"recipientEmail\": \"wkgoshithapremachandra@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/smtp-settings/TEST_MAIL/test-email",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "smtp-settings",
+                "TEST_MAIL",
+                "test-email"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "6b0367e2-9384-4dd2-938e-f888432e2408",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "a5fa21f1-22d7-4bd0-b365-078cd7f9b1a9",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "b5f6eef9-eb52-48b6-81fd-bb823c1550de"
+    },
+    {
+      "name": "Profile",
+      "item": [],
+      "id": "5aeb15c1-903e-4709-96a9-f93eb4635c0d"
+    }
+  ],
+  "variable": [
+    {
+      "id": "4ecf333e-1c45-429e-8870-b60518c5e29e",
+      "key": "4ecf333e-1c45-429e-8870-b60518c5e29e",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
