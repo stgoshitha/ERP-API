@@ -1,0 +1,17 @@
+info:
+  name: Get  permission by ID
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/permissions/5b279ae7-b7bf-4830-8c40-e7e566fe8cf0"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

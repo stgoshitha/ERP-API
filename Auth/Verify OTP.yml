@@ -1,0 +1,26 @@
+info:
+  name: Verify OTP
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/api/auth/verify-otp"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"email\": \"ranaweeraimashi880@gmail.com\",\r
+
+      \  \"otp\": \"987593\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

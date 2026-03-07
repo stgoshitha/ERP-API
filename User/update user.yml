@@ -1,0 +1,32 @@
+info:
+  name: update user
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: http://localhost:8081/users/5e7b60ef-6387-480a-ae1e-d1fb04432be5
+  body:
+    type: json
+    data: "{\r
+
+      \  \"firstname\": \"user\",\r
+
+      \  \"lastname\": \"erp\",\r
+
+      \  \"email\": \"usererp@gmail.com\",\r
+
+      \  \"password\": \"SecurePass124#\",\r
+
+      \  \"roleCode\": \"ROLE-003\"\r
+
+      \  \r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

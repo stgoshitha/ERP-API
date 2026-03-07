@@ -1,0 +1,32 @@
+info:
+  name: Get all organizations
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{base_url}}/organizations"
+  body:
+    type: text
+    data: "\r
+
+      {\r
+
+      \    \"addressLine1\": \"123 Galle Road\",\r
+
+      \    \"addressLine2\": \"Colombo 07\",\r
+
+      \    \"postalCode\": \"00500\",\r
+
+      \    \"cityId\": \"5d3f63b8-47cc-4e48-8a2b-c312c3806374\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

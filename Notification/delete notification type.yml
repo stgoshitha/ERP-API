@@ -1,0 +1,28 @@
+info:
+  name: delete notification type
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: http://localhost:8080/notifications/types/5c27af1b-bcbf-4870-a54c-532933ed3aca
+  body:
+    type: text
+    data: "{\r
+
+      \    \"name\": \"WARNING\",\r
+
+      \    \"icon\": \"warning-amber\",\r
+
+      \    \"color\": \"#FFA500\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc2OTA2MzE0MywiZXhwIjoxNzY5MTQ5NTQzfQ.Sg5h7gNYc7kS1qf52LJKTE67xWpt0bc_lhJ8XBSbsFo
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

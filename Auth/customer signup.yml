@@ -1,0 +1,78 @@
+info:
+  name: customer signup
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8080/api/auth/signup
+  body:
+    type: json
+    data: "// {\r
+
+      //   \"firstname\": \"John2\",\r
+
+      //   \"lastname\": \"Customer\",\r
+
+      //   \"email\": \"john4customer@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0771234567\"]\r
+
+      // }\r
+
+      \r
+
+      // {\r
+
+      //     \"firstname\": \"Ravin\",\r
+
+      //     \"lastname\": \"Gamage\",\r
+
+      //     \"email\": \"ravin.gamage@example.lk\",\r
+
+      //     \"contactNumbers\": [\r
+
+      //         \"+94771234567\",\r
+
+      //         \"+94112345678\"\r
+
+      //     ],\r
+
+      //     \"password\": \"Password123@!\",\r
+
+      //     \"address\": {\r
+
+      //         \"addressLine1\": \"123 Galle Road\",\r
+
+      //         \"addressLine2\": \"Apartment 4B\",\r
+
+      //         \"postalCode\": \"10300\",\r
+
+      //         \"cityId\": \"4f9612a4-ffcb-4551-a22f-d4e295a030ce\"\r
+
+      //     }\r
+
+      // }\r
+
+      {\r
+
+      \  \"firstname\": \"Imashi2\",\r
+
+      \  \"lastname\": \"Customer\",\r
+
+      \  \"email\": \"ranaweeraimashi880@gmail.com\",\r
+
+      \  \"password\": \"Test@1234\",\r
+
+      \  \"contactNumbers\": [\"07712355567\"]\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

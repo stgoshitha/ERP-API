@@ -1,0 +1,54 @@
+info:
+  name: get all organizations security settings
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/api/security-settings/organization/eeb8f4bf-d1fe-46f1-aacd-3bad595d6c91"
+  body:
+    type: text
+    data: "// {\r
+
+      //   \"firstname\": \"Goshitha\",\r
+
+      //   \"lastname\": \"Premachandra\",\r
+
+      //   \"email\": \"goshitha.premachandra@test.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0786123467\"],\r
+
+      //   \"roleCode\": \"ROLE-001\",\r
+
+      //   \"userStatus\": \"ACTIVE\"\r
+
+      // }\r
+
+      {\r
+
+      \  \"firstname\": \"Tharanga\",\r
+
+      \  \"lastname\": \"Premachandra\",\r
+
+      \  \"email\": \"tharanga.premachandra@test.com\",\r
+
+      \  \"password\": \"Test@1234\",\r
+
+      \  \"contactNumbers\": [\"0786123469\"],\r
+
+      \  \"roleCode\": \"ROLE-001\",\r
+
+      \  \"userStatus\": \"ACTIVE\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

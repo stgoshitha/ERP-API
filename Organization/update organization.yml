@@ -1,0 +1,44 @@
+info:
+  name: update organization
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: "{{base_url}}/organizations/{organizationid}"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \" Spice Exports\",\r
+
+      \  \"email\": \"exports@ceylonspices.com\",\r
+
+      \  \"phoneNumber\": \"+94112345677\",\r
+
+      \  \"address\": \"123 Main Street, Pettah, Colombo 7, Sri Lanka\",\r
+
+      \  \"logoUrl\": \"https://cdn.company.com/logos/spice-emblem-2025.png\",\r
+
+      \  \"brandlogourl\": \"https://cdn.company.com/brand/ceylon-spice-banner.jpg\",\r
+
+      \  \"timeZone\": \"Asia/Colombo\",\r
+
+      \  \"language\": \"si\",\r
+
+      \  \"dateFormat\": \"dd/MM/yyyy\",\r
+
+      \  \"timeFormat\": \"HH:mm:ss\",\r
+
+      \  \"theme\": \"dark\"\r
+
+      }\r\n"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

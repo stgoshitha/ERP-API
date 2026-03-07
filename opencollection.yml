@@ -1,0 +1,146 @@
+opencollection: 1.0.0
+
+info:
+  name: coreSync_admin_service_API
+
+request:
+  variables:
+    - name: ""
+      value: ""
+
+docs:
+  content: |-
+    # Admin API Documentation
+
+    ## Overview
+
+    The Admin API provides comprehensive administrative functionality for the ERP system, including user management, authentication, notifications, address management, roles and permissions, and system configuration.
+
+    ## Getting Started
+
+    ### Authentication
+
+    This API uses Bearer token authentication. Include your authentication token in the Authorization header:
+
+    ```
+    Authorization: Bearer {{vault:bearerToken}}
+
+     ```
+
+    ### Base URL
+
+    Set the `{{base_url}}` variable in your environment to point to your API server (e.g., `http://localhost:8080`).
+
+    ## API Modules
+
+    ### 🔐 Authentication (Auth)
+
+    Handles user authentication and session management.
+
+    - Login and logout operations
+        
+    - Token management
+        
+    - Session validation
+        
+
+    ### 👥 User Management
+
+    Complete user lifecycle management including:
+
+    - Create, read, update, and delete users
+        
+    - User profile management
+        
+    - User status management
+        
+
+    ### 📍 Address & Location
+
+    Manage addresses and location data:
+
+    - Address CRUD operations
+        
+    - City and district lookups
+        
+    - Location hierarchy management
+        
+
+    ### 🔑 Roles & Permissions
+
+    Role-based access control (RBAC) system:
+
+    - Role creation and management
+        
+    - Permission assignment
+        
+    - Role-permission mapping
+        
+
+    ### 🔔 Notifications
+
+    Notification system management:
+
+    - Create and manage notifications
+        
+    - Notification type configuration
+        
+    - Notification delivery tracking
+        
+
+    ### ⚙️ System Configuration
+
+    System-level settings and preferences:
+
+    - SMTP settings for email delivery
+        
+    - System preferences
+        
+    - Organization settings
+        
+
+    ## Common Workflows
+
+    ### Setting Up a New User
+
+    1. Create user account (User → Create user)
+        
+    2. Assign role (Role → Assign role to user)
+        
+    3. Configure permissions (Permission → Set permissions)
+        
+    4. Create address if needed (Address → Create address)
+        
+
+    ### Configuring Notifications
+
+    1. Create notification type (Notification → Create notification type)
+        
+    2. Configure SMTP settings (SmtpSettings → Configure SMTP)
+        
+    3. Send notifications (Notification → Create notification)
+        
+
+    ## Environment Variables
+
+    Ensure these variables are configured in your environment:
+
+    - `base_url` - Your API server URL
+        
+    - `vault:bearerToken` - Your authentication token (stored securely in Postman Vault)
+        
+
+    ## Support & Resources
+
+    For additional support or to report issues, contact your system administrator or development team.
+
+    ---
+
+    _Last updated: 2024_
+  type: text/markdown
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

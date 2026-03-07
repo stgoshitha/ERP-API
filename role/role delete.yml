@@ -1,0 +1,20 @@
+info:
+  name: role delete
+  type: http
+  seq: 2
+
+http:
+  method: DELETE
+  url: http://localhost:8080/roles/5224d894-390c-4187-a633-12c373ff80fe
+  body:
+    type: text
+    data: ""
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3NzMzOSwiZXhwIjoxNzY5MTYzNzM5fQ.6I8O9SBco-o2Q_xnD3Gg1KwC56Bq10t8rAD7mvWwtEw
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

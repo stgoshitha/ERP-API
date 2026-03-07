@@ -1,0 +1,17 @@
+info:
+  name: Delete smtp
+  type: http
+  seq: 6
+
+http:
+  method: DELETE
+  url: "{{base_url}}/smtp-settings/fbfd0a61-d4ca-4407-976a-2eea93c18b4d"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

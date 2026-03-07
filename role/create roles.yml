@@ -1,0 +1,20 @@
+info:
+  name: create roles
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/roles"
+  body:
+    type: json
+    data: "{\r\n    \"roleName\":\"Admin\"\r\n}"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

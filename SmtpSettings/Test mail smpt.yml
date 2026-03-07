@@ -1,0 +1,28 @@
+info:
+  name: Test mail smpt
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{base_url}}/smtp-settings/TEST_MAIL/test-mail"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"recipientEmail\": \"wkgoshithapremachandra@gmail.com\"\r
+
+      //   \"subject\": \"Test Email 01\",\r
+
+      //   \"message\": \"This is a test email sent from the API. Please ignore it. Thank you.\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

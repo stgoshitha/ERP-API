@@ -1,0 +1,32 @@
+info:
+  name: partial update organization security settings
+  type: http
+  seq: 7
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/security-settings/organization/eeb8f4bf-d1fe-46f1-aacd-3bad595d6c91"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"minPasswordLength\": 15,\r
+
+      \    \"requireUppercase\": true,\r
+
+      \    \"requireNumber\": true,\r
+
+      \    \"requireSpecialChar\": false,\r
+
+      \    \"autoLogoutEnabled\": true,\r
+
+      \    \"sessionTimeoutMinutes\": 30\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,54 @@
+info:
+  name: admin add system user
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{base_url}}/users"
+  body:
+    type: json
+    data: "// {\r
+
+      //   \"firstname\": \"Goshitha\",\r
+
+      //   \"lastname\": \"Premachandra\",\r
+
+      //   \"email\": \"goshitha.premachandra@test.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0786123467\"],\r
+
+      //   \"roleCode\": \"ROLE-001\",\r
+
+      //   \"userStatus\": \"ACTIVE\"\r
+
+      // }\r
+
+      {\r
+
+      \  \"firstname\": \"Tharanga\",\r
+
+      \  \"lastname\": \"Premachandra\",\r
+
+      \  \"email\": \"tharanga.premachandra@test.com\",\r
+
+      \  \"password\": \"Test@1234\",\r
+
+      \  \"contactNumbers\": [\"0786123469\"],\r
+
+      \  \"roleCode\": \"ROLE-001\",\r
+
+      \  \"userStatus\": \"ACTIVE\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

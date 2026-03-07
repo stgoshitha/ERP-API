@@ -1,0 +1,46 @@
+info:
+  name: assign permission
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8080/roles/save
+  body:
+    type: json
+    data: "{\r
+
+      \    \"roleName\": \"Accountant\",\r
+
+      \    \"roleCode\": \"ROLE-013\",\r
+
+      \    \"description\": \"cannot manage inventory\",\r
+
+      \    \"permissions\": [\r
+
+      \        {\r
+
+      \            \"permissionId\": \"1c16ca35-637a-42df-b00b-f390475676cc\",\r
+
+      \            \"canRead\": false,\r
+
+      \            \"canUpdate\": false,\r
+
+      \            \"canCreate\": false,\r
+
+      \            \"canDelete\": true\r
+
+      \        }\r
+
+      \    ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3NzMzOSwiZXhwIjoxNzY5MTYzNzM5fQ.6I8O9SBco-o2Q_xnD3Gg1KwC56Bq10t8rAD7mvWwtEw
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,26 @@
+info:
+  name: update roles
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: http://localhost:8080/roles/88a9d861-9d6f-415a-bf2d-3153dd4626d7
+  body:
+    type: json
+    data: "{\r
+
+      \    \"roleName\": \"Super Admin\",\r
+
+      \    \"description\": \"Manages system-wide settings and user permissions\"\r
+
+      \  }"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3NzMzOSwiZXhwIjoxNzY5MTYzNzM5fQ.6I8O9SBco-o2Q_xnD3Gg1KwC56Bq10t8rAD7mvWwtEw
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

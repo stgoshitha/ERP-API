@@ -1,0 +1,44 @@
+info:
+  name: Add Organizations
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/organizations"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Ceylon Tea Exports Pvt Ltd\",\r
+
+      \  \"email\": \"info@ceylonteaexports.com\",\r
+
+      \  \"phoneNumber\": \"0784860203\",\r
+
+      \  \"address\": \"No. 234, Union Place, Colombo 02, Sri Lanka\",\r
+
+      \  \"logoUrl\": \"https://example.com/logos/ceylon-tea-emblem.png\",\r
+
+      \  \"brandlogourl\": \"https://example.com/brand/ceylon-tea-horizontal.png\",\r
+
+      \  \"timeZone\": \"Asia/Colombo\",\r
+
+      \  \"language\": \"en\",\r
+
+      \  \"dateFormat\": \"yyyy-MM-dd\",\r
+
+      \  \"timeFormat\": \"HH:mm\",\r
+
+      \  \"theme\": \"light\"\r
+
+      }\r\n"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

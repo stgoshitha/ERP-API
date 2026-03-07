@@ -1,0 +1,30 @@
+info:
+  name: Partialy update
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/organizations/{organizationid}"
+  body:
+    type: json
+    data: "\r
+
+      {\r
+
+      \  \"name\": \"Cinnoman Spice Exports\",\r
+
+      \  \"email\": \"exports@ceylonspice.com\",\r
+
+      \  \"phoneNumber\": \"+94112345678\",\r
+
+      \  \"theme\": \"dark\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

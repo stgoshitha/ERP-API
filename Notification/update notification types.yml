@@ -1,0 +1,28 @@
+info:
+  name: update notification types
+  type: http
+  seq: 1
+
+http:
+  method: PUT
+  url: http://localhost:8080/notifications/types/5c27af1b-bcbf-4870-a54c-532933ed3aca
+  body:
+    type: json
+    data: "{\r
+
+      \    \"name\": \"CRITICAL\",\r
+
+      \    \"icon\": \"dangerous\",\r
+
+      \    \"color\": \"#FF0000\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyZXJwQGdtYWlsLmNvbSIsImlhdCI6MTc2OTA3MjU4MCwiZXhwIjoxNzY5MTU4OTgwfQ.lsWyzk-X6vdKw6EpcBt3SCYKXNlIdfwIIHmQXTX0TdA
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

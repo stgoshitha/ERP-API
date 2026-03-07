@@ -1,0 +1,6 @@
+name: coresyncENV
+variables:
+  - name: base_url
+    value: http://localhost:8080
+  - name: bearerToken
+    value: ""

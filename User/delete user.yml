@@ -1,0 +1,17 @@
+info:
+  name: delete user
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: "{{base_url}}/users/70588c30-dfb3-447f-89c4-d47b4107d8c4"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,30 @@
+info:
+  name: updatesystem preferance
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: "{{base_url}}/preferences/me"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"language\": \"en\",\r
+
+      \  \"dateFormat\": \"yyyy-MM-dd\",\r
+
+      \  \"timeFormat\": \"HH:mm\",\r
+
+      \  \"timeZone\": \"Asia/Colombo\"\r
+
+      }\r\n"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

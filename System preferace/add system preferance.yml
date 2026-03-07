@@ -1,0 +1,17 @@
+info:
+  name: add system preferance
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{base_url}}/preferences/me"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

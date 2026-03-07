@@ -1,0 +1,220 @@
+info:
+  name: all roles signup by admin
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/users"
+  body:
+    type: json
+    data: "// {\r
+
+      //   \"firstname\": \"Dilhani\",\r
+
+      //   \"lastname\": \"Customer\",\r
+
+      //   \"email\": \"dilhanicustomer12@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0776085087\"],\r
+
+      //   \"userStatus\": \"ACTIVE\",\r
+
+      //   \"roleCode\": \"ROLE-003\"\r
+
+      \r
+
+      // }\r
+
+      // \r
+
+      // {\r
+
+      //   \"firstname\": \"Daham\",\r
+
+      //   \"lastname\": \"Wimalarathne\",\r
+
+      //   \"email\": \"dahamfinancemanager@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0781234227\"],\r
+
+      //   \"userStatus\": \"ACTIVE\",\r
+
+      //   \"roleCode\": \"ROLE-009\"\r
+
+      \r
+
+      // }\r
+
+      // \r
+
+      // {\r
+
+      //   \"firstname\": \"Sanduni\",\r
+
+      //   \"lastname\": \"Perera\",\r
+
+      //   \"email\": \"sandunicsofficer@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0784434337\"],\r
+
+      //   \"userStatus\": \"ACTIVE\",\r
+
+      //   \"roleCode\": \"ROLE-011\"\r
+
+      \r
+
+      // }\r
+
+      \r
+
+      // {\r
+
+      //   \"firstname\": \"Rashmi\",\r
+
+      //   \"lastname\": \"Navoda\",\r
+
+      //   \"email\": \"rashmiprojectmanager@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0786604337\"],\r
+
+      //   \"userStatus\": \"ACTIVE\",\r
+
+      //   \"roleCode\": \"ROLE-010\"\r
+
+      \r
+
+      // }\r
+
+      // {\r
+
+      //   \"firstname\": \"Amanda\",\r
+
+      //   \"lastname\": \"Silva\",\r
+
+      //   \"email\": \"amandaprocurementOfficer@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0726604337\"],\r
+
+      //   \"userStatus\": \"ACTIVE\",\r
+
+      //   \"roleCode\": \"ROLE-012\"\r
+
+      \r
+
+      // }\r
+
+      // {\r
+
+      //   \"firstname\": \"Ranidu\",\r
+
+      //   \"lastname\": \"Samitha\",\r
+
+      //   \"email\": \"raniduccountant@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"07244006637\"],\r
+
+      //   \"userStatus\": \"ACTIVE\",\r
+
+      //   \"roleCode\": \"ROLE-013\"\r
+
+      //  }\r
+
+      // {\r
+
+      //   \"firstname\": \"Akash\",\r
+
+      //   \"lastname\": \"Nethmina\",\r
+
+      //   \"email\": \"akashpayrollofficer@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0781114337\"],\r
+
+      //   \"userStatus\": \"ACTIVE\",\r
+
+      //   \"roleCode\": \"ROLE-014\"\r
+
+      \r
+
+      // }\r
+
+      \r
+
+      // {\r
+
+      //   \"firstname\": \"Nimal\",\r
+
+      //   \"lastname\": \"Fernando\",\r
+
+      //   \"email\": \"nimal.fernando@example.com\",\r
+
+      //   \"password\": \"Test@1234\",\r
+
+      //   \"contactNumbers\": [\"0771234567\", \"0112345678\"],\r
+
+      //   \"address\": {\r
+
+      //     \"addressLine1\": \"No 25, Main Street\",\r
+
+      //     \"addressLine2\": \"Colombo 05\",\r
+
+      //     \"postalCode\": \"00500\",\r
+
+      //     \"cityId\": \"YOUR_CITY_UUID_HERE\"\r
+
+      //   }\r
+
+      // }\r
+
+      \r
+
+      {\r
+
+      \  \"firstname\": \"Nimal\",\r
+
+      \  \"lastname\": \"Fernando\",\r
+
+      \  \"email\": \"nimal.fernando@example.com\",\r
+
+      \  \"password\": \"Test@1234\",\r
+
+      \  \"roleCode\": \"ROLE-014\",\r
+
+      \  \"contactNumbers\": [\"0771234567\", \"0112345678\"],\r
+
+      \  \"address\": {\r
+
+      \    \"addressLine1\": \"No 25, Main Street\",\r
+
+      \    \"addressLine2\": \"Colombo 05\",\r
+
+      \    \"postalCode\": \"00500\",\r
+
+      \    \"cityId\": \"5d3f63b8-47cc-4e48-8a2b-c312c3806374\"\r
+
+      \  }\r
+
+      }\r\n"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

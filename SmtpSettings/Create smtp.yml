@@ -1,0 +1,60 @@
+info:
+  name: Create smtp
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/smtp-settings/9943067d-aa55-47a2-8bc2-b35b01399b35"
+  body:
+    type: json
+    data: "// {\r
+
+      //   \"smtpPurpose\": \"test mail\",\r
+
+      //   \"smtpHost\": \"smtp.gmail.com\",\r
+
+      //   \"smtpPort\": 587,\r
+
+      //   \"smtpUsername\": \"test2@gmail.com\",\r
+
+      //   \"smtpPassword\": \"test1234\",\r
+
+      //   \"senderEmail\": \"test2@gmail.com\",\r
+
+      //   \"securityType\": \"STARTTLS\",\r
+
+      //   \"isActive\": true\r
+
+      // }\r
+
+      \r
+
+      {\r
+
+      \  \"smtpPurpose\": \"test mail\",\r
+
+      \  \"smtpHost\": \"smtp.gmail.com\",\r
+
+      \  \"smtpPort\": 587,\r
+
+      \  \"smtpUsername\": \"goshitha.st@gmail.com\",\r
+
+      \  \"smtpPassword\": \"uvztehgpkbkewddw\",\r
+
+      \  \"senderEmail\": \"goshitha.st@gmail.com\",\r
+
+      \  \"securityType\": \"STARTTLS\",\r
+
+      \  \"isActive\": true\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

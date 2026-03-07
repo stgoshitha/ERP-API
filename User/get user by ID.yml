@@ -1,0 +1,36 @@
+info:
+  name: get user by ID
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{base_url}}/users/ed2918d0-ed19-4b2d-8ad2-0c4480d97951"
+  body:
+    type: text
+    data: "{\r
+
+      \  \"firstname\": \"Goshitha\",\r
+
+      \  \"lastname\": \"Premachandra\",\r
+
+      \  \"email\": \"goshitha.premachandra@test.com\",\r
+
+      \  \"password\": \"Test@1234\",\r
+
+      \  \"contactNumbers\": [\"0786123467\"],\r
+
+      \  \"roleCode\": \"ROLE-001\",\r
+
+      \  \"userStatus\": \"ACTIVE\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

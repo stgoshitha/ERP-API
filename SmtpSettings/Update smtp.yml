@@ -1,0 +1,36 @@
+info:
+  name: Update smtp
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{base_url}}/smtp-settings/fbfd0a61-d4ca-4407-976a-2eea93c18b4d"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"smtpPurpose\": \"SYSTEM_NOTIFICATIONS_1234\",\r
+
+      \  \"smtpHost\": \"smtp.gmail.com\",\r
+
+      \  \"smtpPort\": 587,\r
+
+      \  \"smtpUsername\": \"test1@gmail.com\",\r
+
+      \  \"smtpPassword\": \"test123456\",\r
+
+      \  \"senderEmail\": \"test1@gmail.com\",\r
+
+      \  \"securityType\": \"STARTTLS\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{bearerToken}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
